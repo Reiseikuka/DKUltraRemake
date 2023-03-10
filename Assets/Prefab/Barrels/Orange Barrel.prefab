@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3283755598680879281}
   - component: {fileID: 2927971358215366057}
   - component: {fileID: 5921440282700237596}
+  - component: {fileID: -420223156271538321}
   m_Layer: 0
   m_Name: Orange Barrel
   m_TagString: Untagged
@@ -120,4 +121,17 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.34
+  m_Radius: 0.37
+--- !u!114 &-420223156271538321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7844558863114813968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c41a03831029ad4e81f2f2e6a426139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3

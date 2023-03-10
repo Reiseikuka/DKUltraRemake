@@ -16,11 +16,13 @@ public class Player : MonoBehaviour
     private Collider2D[] results;
     private Vector2 direction;
 
-    private float moveSpeed = 2f;
+    private float moveSpeed = 3f;
     private float jumpStrength = 4.3f;
 
     private bool grounded;
     private bool climbing;
+
+    private float vertical;
 
     private void Awake()
     {
@@ -76,6 +78,7 @@ public class Player : MonoBehaviour
         if (climbing)
         {
             direction.y = Input.GetAxis("Vertical")  * moveSpeed;
+
         } else if (grounded && Input.GetButtonDown("Jump"))
         {
             direction = Vector2.up * jumpStrength;
@@ -111,16 +114,19 @@ public class Player : MonoBehaviour
     {
         if (climbing)
         {
-            //spriteRenderer.sprite = climbSprite;
-
-            spriteIndex++;
-
-            if (spriteIndex >= climbSprites.Length)
+            if (Input.GetAxisRaw("Vertical") != 0)
             {
-                spriteIndex = 0;
-            }
+                //spriteRenderer.sprite = climbSprite;
 
-            spriteRenderer.sprite = climbSprites[spriteIndex];
+                spriteIndex++;
+
+                if (spriteIndex >= climbSprites.Length)
+                {
+                    spriteIndex = 0;
+                }
+
+                spriteRenderer.sprite = climbSprites[spriteIndex];
+            }
         }
         else if (direction.x != 0f)
         {
