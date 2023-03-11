@@ -4,6 +4,7 @@ public class PlayerAnimation : MonoBehaviour
 {
     PlayerInput input;
 
+    //TODO: Assign animation sprites
     [SerializeField] private Sprite[] runSprites;
     [SerializeField] private Sprite[] climbSprites;
     private void Awake()
@@ -23,6 +24,7 @@ public class PlayerAnimation : MonoBehaviour
         CancelInvoke();
     }
 
+    //TODO: Implement animations
     //private void AnimateSprite()
     //{
     //    if (climbing)

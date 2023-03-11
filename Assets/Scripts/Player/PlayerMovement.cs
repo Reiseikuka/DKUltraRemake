@@ -73,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
         SetGroundedState();
         CheckCollision();
 
+        //TODO: Iimplement climbing ladders
         //if (isClimbing)
         //{
         //    // direction.y = Input.GetAxis("Vertical") * _moveSpeed;
@@ -104,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
             visualTransform.rotation = _movementDirection.x < 0 ? 
                 Quaternion.Euler(Vector3.zero) : Quaternion.Euler(new Vector3(0f, 180f, 0f));
 
-            SetYPosition();
+            SetYPosition(); //Move the character up or down to stay on the platform
         }
 
         MoveCharacter();
@@ -153,11 +154,6 @@ public class PlayerMovement : MonoBehaviour
     private void SetGroundedState()
     {
         bool grounded = false;
-        Vector3 boundsMin = _collider.bounds.min;
-        Vector3 boundsMax = _collider.bounds.min + (Vector3.right * boundWidth);
-        
-        //if (Physics2D.Raycast(boundsMin, Vector2.down, groundedCheckLength, groundLayer) ||
-        //    Physics2D.Raycast(boundsMax, Vector2.down, groundedCheckLength, groundLayer))
         
         if(Physics2D.BoxCast(_collider.bounds.center + Vector3.down * (_collider.bounds.size.y / 1.9f),
             new Vector2(boundWidth, 0.01f), 0, Vector3.down, groundedCheckLength, groundLayer)){

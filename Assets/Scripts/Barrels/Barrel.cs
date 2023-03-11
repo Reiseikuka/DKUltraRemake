@@ -6,6 +6,9 @@ public class Barrel : MonoBehaviour
 {
     private new Rigidbody2D rigidbody;
     public float speed = 3f;
+
+    // TODO: Implement barrel traversal
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
