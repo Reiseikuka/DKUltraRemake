@@ -15,7 +15,7 @@ public class Barrel : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            Debug.Log("Barrel has touch the platform");
+            //Debug.Log("Barrel has touch the platform");
             rigidbody.AddForce(collision.transform.right * speed, ForceMode2D.Impulse);
         }
     }

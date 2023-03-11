@@ -28,16 +28,16 @@ TextureImporter:
     second: mariov1_hammer_4
   - first:
       213: 4570847381598500835
-    second: output-onlinepngtools_8_8
+    second: Climb1
   - first:
       213: -6800858774005132231
     second: mariov1_hammer_5
   - first:
       213: -2438504214828972200
-    second: output-onlinepngtools_8_10
+    second: Climb2
   - first:
       213: -1355818092248181307
-    second: output-onlinepngtools_8_11
+    second: Climb3
   - first:
       213: -3882840998352786392
     second: output-onlinepngtools_8_12
@@ -2056,7 +2056,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: output-onlinepngtools_8_8
+      name: Climb1
       rect:
         serializedVersion: 2
         x: 150
@@ -2098,7 +2098,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: output-onlinepngtools_8_10
+      name: Climb2
       rect:
         serializedVersion: 2
         x: 164
@@ -2119,7 +2119,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: output-onlinepngtools_8_11
+      name: Climb3
       rect:
         serializedVersion: 2
         x: 178
