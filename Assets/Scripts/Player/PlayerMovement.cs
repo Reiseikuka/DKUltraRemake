@@ -19,8 +19,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float maxFallSpeed = -1f;
     private float jumpVelocity; // The vertical velocity of the jump
     private float gravity; // The gravity force acting on the character
-    private float defaultJumpGroundCheckTimerValue = 0.1f;
-    private float jumpGroundCheckTimer;
 
     private const float groundedCheckLength = 0.02f;
     private bool isGrounded;
@@ -108,10 +106,9 @@ public class PlayerMovement : MonoBehaviour
                     SetPlayerState(PlayerState.Walking);
                 break;
             case PlayerState.Jumping:
-                jumpGroundCheckTimer -= Time.deltaTime;
                 ApplyFallingGravity();
 
-                if (isGrounded && jumpGroundCheckTimer < 0)
+                if (isGrounded && _movementDirection.y < 0)
                     SetPlayerState(PlayerState.Walking);
 
                 break;
@@ -130,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
                     ApplyFallingGravity();
                 }
                 else
-                _movementDirection.y = gravity * Time.deltaTime;
+                    _movementDirection.y = gravity * Time.deltaTime;
                 
                 // Flip sprite correct direction
                 if (_movementDirection.x != 0)
@@ -176,7 +173,6 @@ public class PlayerMovement : MonoBehaviour
                 transform.position = playerPosition;
                 break;
             case PlayerState.Jumping:
-                jumpGroundCheckTimer = defaultJumpGroundCheckTimerValue;
                 break;
             case PlayerState.Walking:
                 if (fell)
