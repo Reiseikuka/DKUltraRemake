@@ -47,8 +47,8 @@ public class PlayerAnimation : MonoBehaviour
                     spriteIndex++;
                     spriteIndex %= runSprites.Length;
 
-                    spriteRenderer.sprite = runSprites[spriteIndex];
                 }
+                spriteRenderer.sprite = runSprites[spriteIndex];
                 break;
             case PlayerState.Hammer:
                 spriteIndex++;
