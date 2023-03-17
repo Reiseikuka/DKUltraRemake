@@ -2,57 +2,62 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    PlayerInput input;
-
-    //TODO: Assign animation sprites
     [SerializeField] private Sprite[] runSprites;
     [SerializeField] private Sprite[] climbSprites;
+    [SerializeField] private Sprite[] hammerSprites;
+    [SerializeField] private Sprite jumpSprite;
+
+    private SpriteRenderer spriteRenderer;
+    private PlayerMovement movement;
+    private int spriteIndex = 0;
     private void Awake()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        movement = GetComponentInParent<PlayerMovement>();
     }
 
     private void OnEnable()
     {
-        
-        // InvokeRepeating(nameof(AnimateSprite), 1f/12f, 1f/12f);
+        InvokeRepeating(nameof(AnimateSprite), 1f/12f, 1f/12f);
     }
-
 
     private void OnDisable()
     {
         CancelInvoke();
     }
 
-    //TODO: Implement animations
-    //private void AnimateSprite()
-    //{
-    //    if (climbing)
-    //    {
-    //        if (Input.GetAxisRaw("Vertical") != 0)
-    //        {
-    //            //spriteRenderer.sprite = climbSprite;
+    private void AnimateSprite()
+    {
+        switch(movement.CurrentPlayerState)
+        {
+            case PlayerState.Climbing:
+                if (movement.Input.GetMovementVector().y != 0)
+                {
+                    spriteIndex++;
+                    spriteIndex %= climbSprites.Length;
+                }
+                spriteRenderer.sprite = climbSprites[spriteIndex];
+                break;
+            case PlayerState.Jumping:
+                spriteRenderer.sprite = jumpSprite;
+                break;
+            case PlayerState.Walking:
+                if (movement.Input.GetMovementVector().x != 0f)
+                {
+                    spriteIndex++;
+                    spriteIndex %= runSprites.Length;
 
-    //            spriteIndex++;
+                    spriteRenderer.sprite = runSprites[spriteIndex];
+                }
+                break;
+            case PlayerState.Hammer:
+                spriteIndex++;
+                spriteIndex %= hammerSprites.Length;
 
-    //            if (spriteIndex >= climbSprites.Length)
-    //            {
-    //                spriteIndex = 0;
-    //            }
-
-    //            spriteRenderer.sprite = climbSprites[spriteIndex];
-    //        }
-    //    }
-    //    else if (direction.x != 0f)
-    //    {
-    //        spriteIndex++;
-
-    //        if (spriteIndex >= runSprites.Length)
-    //        {
-    //            spriteIndex = 0;
-    //        }
-
-    //        spriteRenderer.sprite = runSprites[spriteIndex];
-    //    }
-    //}
+                spriteRenderer.sprite = hammerSprites[spriteIndex];
+                break;
+            default:
+                break;
+        };
+    }
 }

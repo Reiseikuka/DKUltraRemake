@@ -4,9 +4,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private bool fell;
-    private PlayerInput _input;
+    public PlayerInput Input { get; private set; }
     private Rigidbody2D _rigidbody;
-    [SerializeField] private PlayerState currentPlayerState;
+    public PlayerState CurrentPlayerState { get; private set; }
     [SerializeField] private Transform visualTransform;
     [SerializeField] private BoxCollider2D physicalCollider;
     [SerializeField] private BoxCollider2D triggerCollider;
@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
 
     private const float groundedCheckDistance = 0.1f;
     private bool isGrounded;
-    private float boundWidth;
 
     [Header("Climbing")]
     Vector3 lastPlayerPosition;
@@ -37,9 +36,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        _input = new PlayerInput();
-        _input.Initialize();
-        _input.OnJumpPressed += Jump;
+        Input = new PlayerInput();
+        Input.Initialize();
+        Input.OnJumpPressed += Jump;
 
         _rigidbody = GetComponent<Rigidbody2D>();
 
@@ -47,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
 
         groundLayer = LayerMask.GetMask("Ground");
         ladderLayer = LayerMask.NameToLayer("Ladder");
-        boundWidth = physicalCollider.bounds.max.x - physicalCollider.bounds.min.x;
     }
     private void Start()
     {
@@ -88,12 +86,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void StateUpdate()
     {
-        switch (currentPlayerState)
+        switch (CurrentPlayerState)
         {
             case PlayerState.Climbing:
 
                 if (canClimb)
-                    _movementDirection.y = _input.GetMovementVector().y * moveSpeed;
+                    _movementDirection.y = Input.GetMovementVector().y * moveSpeed;
                 else
                 {
                     transform.position = lastPlayerPosition;
@@ -101,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 _movementDirection.x = 0;
 
-                if (isGrounded && _input.GetMovementVector().x != 0)
+                if (isGrounded && Input.GetMovementVector().x != 0)
                     SetPlayerState(PlayerState.Walking);
                 break;
             case PlayerState.Jumping:
@@ -113,13 +111,13 @@ public class PlayerMovement : MonoBehaviour
                 break;
             case PlayerState.Walking:
                 
-                if (canClimb && _input.GetMovementVector().y != 0 && _input.GetMovementVector().x == 0)
+                if (canClimb && Input.GetMovementVector().y != 0 && Input.GetMovementVector().x == 0)
                 {
                     SetPlayerState(PlayerState.Climbing);
                     break;
                 }
 
-                _movementDirection.x = _input.GetMovementVector().x * moveSpeed;
+                _movementDirection.x = Input.GetMovementVector().x * moveSpeed;
                 if (!isGrounded)
                 {
                     fell = true;
@@ -166,10 +164,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void SetPlayerState(PlayerState newState)
     {
-        if (currentPlayerState != newState)
-            currentPlayerState = newState;
+        if (CurrentPlayerState != newState)
+            CurrentPlayerState = newState;
 
-        switch (currentPlayerState)
+        switch (CurrentPlayerState)
         {
             case PlayerState.Climbing:
                 //Move the player to the center of the ladder
@@ -193,8 +191,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
-
+    #region Grounded & Climbing
+    private Vector3 boundsPosition;
+    private Vector2 boundSize;
     private void SetCanClimb()
     {
         int amountOfObjectsCurrentlyTouching = Physics2D.OverlapBoxNonAlloc(boundsPosition, boundSize, 0f, _collisionResults);
@@ -211,18 +210,13 @@ public class PlayerMovement : MonoBehaviour
                 ladderFound = true;
                 currentLadder = _collisionResults[i].transform;
             }
-            //else if(_collisionResults[i].transform.position.y > transform.position.y)
-            //{
-            //    Physics2D.IgnoreCollision(physicalCollider, _collisionResults[i]);
-            //}
         }
 
         if (!ladderFound)
             currentLadder = null;
     }
 
-    Vector3 boundsPosition;
-    Vector2 boundSize;
+
     private void SetGrounded()
     {
         boundsPosition = physicalCollider.bounds.center + Vector3.down * (physicalCollider.bounds.size.y / 1.9f);
@@ -236,9 +230,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         isGrounded = grounded;
-        //if (isGrounded)
-        //    SetPlayerState(PlayerState.Walking);
     }
+    #endregion
 
     private void OnDrawGizmosSelected()
     {

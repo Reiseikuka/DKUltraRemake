@@ -965,8 +965,8 @@ GameObject:
   m_Component:
   - component: {fileID: 529639247}
   - component: {fileID: 529639246}
-  m_Layer: 8
-  m_Name: Barrier (1)
+  m_Layer: 3
+  m_Name: Barrier Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1503,8 +1503,8 @@ GameObject:
   m_Component:
   - component: {fileID: 759450597}
   - component: {fileID: 759450596}
-  m_Layer: 0
-  m_Name: Barrier
+  m_Layer: 3
+  m_Name: Barrier Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3510,9 +3510,85 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: jumpSprite
+      value: 
+      objectReference: {fileID: 7123259771696600185, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: runSprites.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: climbSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: hammerSprites.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: runSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -6274341183711558524, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: runSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 5825480485106342183, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: runSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: -3307028658396635647, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: runSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: -4544034776478231235, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: runSprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 2206223541839388753, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: runSprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 5217140007277388622, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: runSprites.Array.data[6]
+      value: 
+      objectReference: {fileID: -4736202878790180603, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: climbSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 4570847381598500835, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: climbSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -2438504214828972200, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: climbSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: -1355818092248181307, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: hammerSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -8387141973628071256, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: hammerSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 3393895802412692205, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: hammerSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: -7673916769399034120, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: hammerSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: -4185962400715412373, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+    - target: {fileID: 7733981570114385866, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
+      propertyPath: hammerSprites.Array.data[4]
+      value: 
+      objectReference: {fileID: -6800858774005132231, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
     - target: {fileID: 8621254159828792044, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61bee725d9a734641843c223707c1bd6, type: 3}
