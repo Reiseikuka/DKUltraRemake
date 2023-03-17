@@ -1,6 +1,5 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
-
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpVelocity; // The vertical velocity of the jump
     private float gravity; // The gravity force acting on the character
 
-    private const float groundedCheckLength = 0.02f;
+    private const float groundedCheckDistance = 0.1f;
     private bool isGrounded;
     private float boundWidth;
 
@@ -56,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Set the vertical velocity of the jump
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-        jumpVelocity *= 15.3f; // Increase the jump velocity a bit
+        jumpVelocity *= 1.3f; // Increase the jump velocity a bit
     }
 
     private void Jump()
@@ -64,9 +63,9 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
         {
             // Uncomment to test jump heights
-            gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
-            jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-            jumpVelocity *= 1.3f;
+            //gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
+            //jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+            //jumpVelocity *= 1.3f;
 
             // Set the character's y velocity to the jump velocity
             Vector3 velocity = _rigidbody.velocity;
@@ -114,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
                 break;
             case PlayerState.Walking:
                 
-                if (canClimb && _input.GetMovementVector().y != 0)
+                if (canClimb && _input.GetMovementVector().y != 0 && _input.GetMovementVector().x == 0)
                 {
                     SetPlayerState(PlayerState.Climbing);
                     break;
@@ -127,12 +126,19 @@ public class PlayerMovement : MonoBehaviour
                     ApplyFallingGravity();
                 }
                 else
-                    _movementDirection.y = gravity * Time.deltaTime;
+                {
+                    _movementDirection.y = 0;
+
+                    // Move character ontop of the 
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position + Vector3.up * 0.5f, Vector3.down, 1f, groundLayer);
+                    if(hit)
+                        transform.position = hit.point;
+                }
                 
                 // Flip sprite correct direction
                 if (_movementDirection.x != 0)
                 {
-                    visualTransform.rotation = _movementDirection.x < 0 ?
+                    transform.rotation = _movementDirection.x < 0 ?
                         Quaternion.Euler(Vector3.zero) : Quaternion.Euler(new Vector3(0f, 180f, 0f));
                 }
 
@@ -187,13 +193,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
+
     private void SetCanClimb()
     {
-        Vector2 size = triggerCollider.bounds.size;
-        size.y += 0.1f;
-        size.x /= 2f;
-        
-        int amountOfObjectsCurrentlyTouching = Physics2D.OverlapBoxNonAlloc(transform.position, size, 0f, _collisionResults);
+        int amountOfObjectsCurrentlyTouching = Physics2D.OverlapBoxNonAlloc(boundsPosition, boundSize, 0f, _collisionResults);
         
         canClimb = false;
         bool ladderFound = false;
@@ -207,22 +211,27 @@ public class PlayerMovement : MonoBehaviour
                 ladderFound = true;
                 currentLadder = _collisionResults[i].transform;
             }
-            else if(_collisionResults[i].transform.position.y > transform.position.y)
-            {
-                Physics2D.IgnoreCollision(physicalCollider, _collisionResults[i]);
-            }
+            //else if(_collisionResults[i].transform.position.y > transform.position.y)
+            //{
+            //    Physics2D.IgnoreCollision(physicalCollider, _collisionResults[i]);
+            //}
         }
 
         if (!ladderFound)
             currentLadder = null;
     }
 
+    Vector3 boundsPosition;
+    Vector2 boundSize;
     private void SetGrounded()
     {
+        boundsPosition = physicalCollider.bounds.center + Vector3.down * (physicalCollider.bounds.size.y / 1.9f);
+        boundSize = physicalCollider.bounds.size;
+        boundSize.y = groundedCheckDistance;
+
         bool grounded = false;
-        
-        if(Physics2D.BoxCast(physicalCollider.bounds.center + Vector3.down * (physicalCollider.bounds.size.y / 1.9f),
-            new Vector2(boundWidth, 0.01f), 0, Vector3.down, groundedCheckLength, groundLayer)){
+
+        if (Physics2D.BoxCast(boundsPosition, boundSize, 0, Vector3.zero, 0, groundLayer)){
             grounded = true;
         }
 
@@ -233,19 +242,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        float boundWidth = physicalCollider.bounds.max.x - physicalCollider.bounds.min.x;
+        // Grounded box
+        Vector3 boundsPosition = physicalCollider.bounds.center + Vector3.down * (physicalCollider.bounds.size.y / 1.9f);
+        Vector2 boundSize = physicalCollider.bounds.size;
+        boundSize.y = groundedCheckDistance;
+        
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(boundsPosition, boundSize);
+
+        // Ladder Detection Box
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(physicalCollider.bounds.center + Vector3.down * (physicalCollider.bounds.size.y / 1.9f),
-            new Vector2(boundWidth, 0.01f));
-
-
-        Vector2 size = triggerCollider.bounds.size;
-        size.y += 0.1f;
-        size.x /= 2f;
-        Gizmos.DrawWireCube(transform.position, size);
-        //Gizmos.DrawLine(physicalCollider.bounds.min, physicalCollider.bounds.min + Vector3.down * groundedCheckLength);
-        //Gizmos.color = Color.blue;
-        //Vector3 rightSide = new Vector3(physicalCollider.bounds.min.x + boundWidth, physicalCollider.bounds.min.y);
-        //Gizmos.DrawLine(rightSide, rightSide + Vector3.down * groundedCheckLength);
+        Gizmos.DrawWireCube(boundsPosition, boundSize);
     }
 }
