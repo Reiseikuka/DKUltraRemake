@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -6274341183711558524, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.75, y: 1.1875}
@@ -95,8 +95,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b35f5c9f6efed94db545467b9497f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSprites: []
-  climbSprites: []
+  runSprites:
+  - {fileID: -6274341183711558524, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+  - {fileID: 5825480485106342183, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+  - {fileID: -3307028658396635647, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+  - {fileID: -4544034776478231235, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+  - {fileID: 2206223541839388753, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+  - {fileID: 5217140007277388622, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+  - {fileID: -4736202878790180603, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+  climbSprites:
+  - {fileID: 4570847381598500835, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+  - {fileID: -2438504214828972200, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+  - {fileID: -1355818092248181307, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+  hammerSprites:
+  - {fileID: -8387141973628071256, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+  - {fileID: 3393895802412692205, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+  - {fileID: -7673916769399034120, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+  - {fileID: -4185962400715412373, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+  - {fileID: -6800858774005132231, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+  jumpSprite: {fileID: 7123259771696600185, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
 --- !u!1 &7733981569867403490
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +158,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7733981569867403490}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -164,10 +181,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.025050819, y: 0.0978179}
+  m_Offset: {x: -0.025050819, y: 0.406}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -178,7 +195,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.45788515, y: 0.1889553}
+  m_Size: {x: 0.45788515, y: 0.8}
   m_EdgeRadius: 0
 --- !u!61 &8621254159828792044
 BoxCollider2D:
@@ -187,7 +204,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7733981569867403490}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -218,19 +235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec72c3de26db6804bbb5f7c684e2d332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSprites:
-  - {fileID: -6274341183711558524, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
-  - {fileID: 5825480485106342183, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
-  - {fileID: -3307028658396635647, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
-  - {fileID: -4544034776478231235, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
-  - {fileID: 2206223541839388753, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
-  - {fileID: 5217140007277388622, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
-  - {fileID: -4736202878790180603, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
-  climbSprites:
-  - {fileID: 4570847381598500835, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
-  - {fileID: -2438504214828972200, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
-  - {fileID: -1355818092248181307, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
-  - {fileID: -2438504214828972200, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
 --- !u!114 &7733981569867403489
 MonoBehaviour:
   m_ObjectHideFlags: 0

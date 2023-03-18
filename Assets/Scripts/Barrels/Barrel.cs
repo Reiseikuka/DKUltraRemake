@@ -7,7 +7,7 @@ public class Barrel : MonoBehaviour
     private new Rigidbody2D rigidbody;
     public float speed = 3f;
 
-    // TODO: Implement barrel traversal
+    // TODO: Implement barrel traversal for ladders
 
     private void Awake()
     {
@@ -19,7 +19,8 @@ public class Barrel : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             //Debug.Log("Barrel has touch the platform");
-            rigidbody.AddForce(collision.transform.right * speed, ForceMode2D.Impulse);
+            rigidbody.angularVelocity = 0;
+            rigidbody.velocity = collision.transform.right * speed;
         }
     }
 }

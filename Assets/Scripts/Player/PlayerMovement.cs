@@ -136,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
                 // Flip sprite correct direction
                 if (_movementDirection.x != 0)
                 {
-                    transform.rotation = _movementDirection.x < 0 ?
+                    transform.rotation = _movementDirection.x > 0 ?
                         Quaternion.Euler(Vector3.zero) : Quaternion.Euler(new Vector3(0f, 180f, 0f));
                 }
 
