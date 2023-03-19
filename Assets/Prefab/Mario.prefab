@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7002527916871811026
+--- !u!1 &754745776448702567
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7002527916871811054}
-  - component: {fileID: 7002527916871811055}
-  - component: {fileID: 7002527916871811052}
-  - component: {fileID: 7002527916871811053}
+  - component: {fileID: 754745776448702555}
+  - component: {fileID: 754745776448702554}
+  - component: {fileID: 7733981570114385866}
   m_Layer: 0
-  m_Name: Mario
+  m_Name: Visual
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7002527916871811054
+--- !u!4 &754745776448702555
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7002527916871811026}
+  m_GameObject: {fileID: 754745776448702567}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.477513, y: -0.9270267, z: 0}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 7733981569867403493}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7002527916871811055
+--- !u!212 &754745776448702554
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7002527916871811026}
+  m_GameObject: {fileID: 754745776448702567}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,7 +74,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -6274341183711558524, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.75, y: 1.1875}
@@ -84,40 +83,174 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &7002527916871811052
+--- !u!114 &7733981570114385866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754745776448702567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b35f5c9f6efed94db545467b9497f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runSprites:
+  - {fileID: -6274341183711558524, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+  - {fileID: 5825480485106342183, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+  - {fileID: -3307028658396635647, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+  - {fileID: -4544034776478231235, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+  - {fileID: 2206223541839388753, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+  - {fileID: 5217140007277388622, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+  - {fileID: -4736202878790180603, guid: aeee0185efc6b024880de9e0ee10c61e, type: 3}
+  climbSprites:
+  - {fileID: 4570847381598500835, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+  - {fileID: -2438504214828972200, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+  - {fileID: -1355818092248181307, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+  hammerSprites:
+  - {fileID: -8387141973628071256, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+  - {fileID: 3393895802412692205, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+  - {fileID: -7673916769399034120, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+  - {fileID: -4185962400715412373, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+  - {fileID: -6800858774005132231, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+  jumpSprite: {fileID: 7123259771696600185, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+--- !u!1 &7733981569867403490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7733981569867403493}
+  - component: {fileID: 7733981569867403494}
+  - component: {fileID: 7733981569867403495}
+  - component: {fileID: 8621254159828792044}
+  - component: {fileID: 7733981569867403488}
+  - component: {fileID: 7733981569867403489}
+  m_Layer: 0
+  m_Name: Mario
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7733981569867403493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7733981569867403490}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.01, y: -6.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 754745776448702555}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &7733981569867403494
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7002527916871811026}
-  m_BodyType: 0
+  m_GameObject: {fileID: 7733981569867403490}
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!70 &7002527916871811053
-CapsuleCollider2D:
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!61 &7733981569867403495
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7002527916871811026}
+  m_GameObject: {fileID: 7733981569867403490}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.48, y: 0.83}
-  m_Direction: 0
+  m_Offset: {x: -0.025050819, y: 0.406}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.45788515, y: 0.8}
+  m_EdgeRadius: 0
+--- !u!61 &8621254159828792044
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7733981569867403490}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0016698837, y: 0.47262526}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.50798607, y: 0.9404793}
+  m_EdgeRadius: 0
+--- !u!114 &7733981569867403488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7733981569867403490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec72c3de26db6804bbb5f7c684e2d332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7733981569867403489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7733981569867403490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de33419de73725049afbbf1f930b22a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualTransform: {fileID: 754745776448702555}
+  physicalCollider: {fileID: 7733981569867403495}
+  triggerCollider: {fileID: 8621254159828792044}
+  moveSpeed: 1.5
+  jumpHeight: 0.7
+  timeToJumpApex: 0.25
+  maxFallSpeed: -5
