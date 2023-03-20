@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2927971358215366057}
   - component: {fileID: 5921440282700237596}
   - component: {fileID: -420223156271538321}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Orange Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7844558863114813968}
   m_BodyType: 0
-  m_Simulated: 0
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.0001
@@ -135,3 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  fallOdds: 0.5
+  fallingSprites:
+  - {fileID: 4440598113022813689, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+  defaultSprite: {fileID: 7925295397436424916, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
+  ladderCheckDistance: 0.4

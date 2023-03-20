@@ -12,7 +12,7 @@ public class BarrelSpawner : MonoBehaviour
     private int throwBarrelHash;
 
     private float spawnTime;
-    private float minSpawnTime;
+    [SerializeField] private float minSpawnTime;
     [SerializeField] private float maxSpawnTime = 4f;
     //how often will it spawn
 
@@ -25,7 +25,8 @@ public class BarrelSpawner : MonoBehaviour
         foreach (AnimationClip animation in animations)
         {
             if (animation.name == "DK_ThrowBarrel")
-                minSpawnTime = animation.length;
+                if(minSpawnTime < animation.length)
+                    minSpawnTime = animation.length;
 
         }
         spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
