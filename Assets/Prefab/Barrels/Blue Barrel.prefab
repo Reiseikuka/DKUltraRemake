@@ -135,3 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  fallOdds: 1
+  fallingSprites: []
+  defaultSprite: {fileID: 0}
+  ladderCheckDistance: 0.5
+  floatingPoints: {fileID: 1381910860395241732, guid: dfd8dd8cc8477f84eb1b3891320dcbae, type: 3}

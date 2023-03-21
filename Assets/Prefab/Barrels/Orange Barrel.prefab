@@ -140,3 +140,4 @@ MonoBehaviour:
   - {fileID: 4440598113022813689, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
   defaultSprite: {fileID: 7925295397436424916, guid: 4c34d547afeccd440be9e49d21a64285, type: 3}
   ladderCheckDistance: 0.4
+  floatingPoints: {fileID: 1381910860395241732, guid: dfd8dd8cc8477f84eb1b3891320dcbae, type: 3}
