@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScoreScript : MonoBehaviour
 {
 
-    Text currentscore;
+    public Text currentscore;
     public BarrelDetection barrelscore;
     void Start()
     {
@@ -20,5 +20,7 @@ public class ScoreScript : MonoBehaviour
         /*For the moment, update the text 
           with the score gained by jumping barrels. Will be updated to 
           add whenever we destroy a barrel or pick items*/
+        //GameScore = int.Parse(currentscore.text);
     }
+
 }
