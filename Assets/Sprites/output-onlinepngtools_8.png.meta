@@ -856,7 +856,7 @@ TextureImporter:
     second: output-onlinepngtools_8_339
   - first:
       213: 4440598113022813689
-    second: dropbarrelv1_enemy_
+    second: FallBarrel
   - first:
       213: 8943323556344602317
     second: output-onlinepngtools_8_341
@@ -3757,13 +3757,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dropbarrelv1_enemy_
+      name: FallBarrel
       rect:
         serializedVersion: 2
-        x: 227
-        y: 9
-        width: 12
-        height: 16
+        x: 228
+        y: 18
+        width: 16
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
