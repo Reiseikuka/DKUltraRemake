@@ -639,6 +639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentscore: {fileID: 240099351}
+  highscoreText: {fileID: 697188749}
   barrelscore: {fileID: 827048158}
 --- !u!114 &240099351
 MonoBehaviour:
